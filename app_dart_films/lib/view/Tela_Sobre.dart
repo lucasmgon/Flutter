@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:share/share.dart';
 
 class TelaSobre extends StatefulWidget {
   _TelaSobreState createState() => _TelaSobreState();
@@ -21,6 +22,12 @@ class _TelaSobreState extends State<TelaSobre> {
               '\t- Lucas Matheus\n' +
               '2020 - SI8',
             ),
+            IconButton(
+                        onPressed: (){
+                          Share.share('Confira mais em: https://www.themoviedb.org/movie/', subject: 'Dart Films Compartilhamento');
+                        },
+                        icon: Icon(Icons.share, color: Colors.blue, size: 20, semanticLabel: 'Compartilhar'),
+                      ),
           ],
         ),
       ),

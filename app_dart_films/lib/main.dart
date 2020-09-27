@@ -7,7 +7,6 @@ void main(){
       debugShowCheckedModeBanner: false,
       title: "Dart Films",
       theme: ThemeData(
-        
         buttonTheme: ButtonThemeData(
           minWidth: 150,
           height: 33,
@@ -15,19 +14,20 @@ void main(){
         ),
 
         textTheme: TextTheme(
-          headline1: TextStyle(fontSize: 16, fontFamily: 'OpenSansBold'),
-          headline2: TextStyle(fontSize: 14, fontFamily: 'OpenSans'),
+          headline1: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, fontFamily: 'OpenSansBold'),
+          headline2: TextStyle(fontSize: 15, fontFamily: 'ProductSans'),
         ),
 
         brightness: Brightness.light,
         primaryColor: Color.fromRGBO(3, 101, 140, 1.0),
         accentColor: Colors.cyan[600],
 
-        fontFamily: 'Sans-serif',
+        fontFamily: 'ProductSans',
       ),
       darkTheme: ThemeData(
         brightness: Brightness.dark,
       ),
+      themeMode: ThemeMode.system, //Tema padrão do sistema
       //themeMode: ThemeMode.dark,
       home: TelaPrincipal(),
     )

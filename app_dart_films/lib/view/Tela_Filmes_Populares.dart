@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:convert' as convert;
 import 'package:http/http.dart' as http;
+import 'package:share/share.dart';
 import 'package:app_dart_films/model/Filmes.dart';
 
 class ListFilmesPopulares extends StatefulWidget {
@@ -54,9 +55,10 @@ class _ListFilmesPopularesState extends State<ListFilmesPopulares> {
                       child: Column(
                         children: [
                           Text(
-                            '\t' + filmes[index].sinopse + '\n',
+                            '\t' + filmes[index].sinopse + '\t' + filmes[index].data + filmes[index].avaliacao.toString() + '\n',
                             style: Theme.of(context).textTheme.headline2,
                           ),
+
                           ClipRRect(
                             //Arredondar borda da imagem
                             borderRadius: BorderRadius.circular(9),
@@ -72,17 +74,29 @@ class _ListFilmesPopularesState extends State<ListFilmesPopulares> {
                         ],
                       ),
                     ),
+
                     actions: [
-                      FlatButton(onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      child: Text("Fechar",
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 15,
-                        )
+                      IconButton(
+                        onPressed: (){},
+                        icon: Icon(Icons.favorite, color: Colors.pink, size: 20, semanticLabel: 'Avaliar'),
                       ),
-                      )
+
+                      IconButton(
+                        onPressed: (){
+                          Share.share(
+                            'Confira mais em: https://www.themoviedb.org/movie/${filmes[index].id}-${filmes[index].title}',
+                            subject: 'Dart Films Compartilhamento'
+                            );
+                        },
+                        icon: Icon(Icons.share, color: Colors.blue, size: 20, semanticLabel: 'Compartilhar'),
+                      ),
+
+                      IconButton(
+                        onPressed: (){
+                          Navigator.pop(context);
+                      },
+                        icon: Icon(Icons.close, color: Colors.cyan, size: 20, semanticLabel: 'Fechar'),
+                      ),
                     ],
                   );
                 }

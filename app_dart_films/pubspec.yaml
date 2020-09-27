@@ -22,7 +22,7 @@ environment:
 
 dependencies:
   http: ^0.12.2
-  provider: ^4.3.2+2
+  share: ^0.6.5+2
   flutter:
     sdk: flutter
 
@@ -70,6 +70,9 @@ flutter:
     - family: YanoneKaffeesatz
       fonts:
         - asset: assets/fonts/YanoneKaffeesatzRegular.ttf
+    - family: ProductSans
+      fonts:
+        - asset: assets/fonts/ProductSansRegular.ttf
 
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

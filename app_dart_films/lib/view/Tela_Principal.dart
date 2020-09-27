@@ -2,20 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:app_dart_films/view/Tela_Series_Populares.dart';
 import 'package:app_dart_films/view/Tela_Filmes_Populares.dart';
 import 'package:app_dart_films/view/Tela_Sobre.dart';
-import 'package:app_dart_films/model/Configuracao.dart';
-import 'package:provider/provider.dart';
 
 class TelaPrincipal extends StatefulWidget {
-  _TelaPrincipalState createState() => _TelaPrincipalState(
-    MultiProvider(
-      providers: [
-        ChangeNotifierProvider<Configuracao>(
-          create: (_) => Configuracao(),
-        ),
-      ],
-      child: TelaPrincipal(),
-    ),
-  );
+  _TelaPrincipalState createState() => _TelaPrincipalState();
 }
 
 class _TelaPrincipalState extends State<TelaPrincipal> {
@@ -26,38 +15,24 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
     TelaSobre(),
   ];
 
-  Configuracao configuracao;
-  bool systemIsDark;
-
   @override
   Widget build(BuildContext context) {
-    bool darkThemeEnable = Provider.of<Configuracao>(context).isDark();
-    
-    configuracao = Provider.of<Configuracao>(context, listen: false);
 
     return Scaffold(
         appBar: AppBar(
           elevation: 8,
           title: Text("Dart Films"),
           
-          themeMode: darkThemeEnable ? ThemeMode.dark : ThemeMode.light,
-
           actions: <Widget>[
             IconButton(
               onPressed: (){},
               icon: Icon(Icons.search),
             ),
-            IconButton(
+            /*IconButton(
               icon: Icon(Icons.brightness_3),
               onPressed: (){
-                trailing: Switch(
-                  value: configuracao.isDark(),
-                  onChanged: (configuracao){
-                    configuracao.setDarkStatus(status);
-                  },
-                );
               },
-            ),
+            ),*/
           ],
         ),
         body: _pageOptions[_selectedPage],
