@@ -14,11 +14,13 @@ void main(){
         ),
 
         textTheme: TextTheme(
-          headline1: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, fontFamily: 'OpenSansBold'),
-          headline2: TextStyle(fontSize: 15, fontFamily: 'ProductSans'),
+          headline1: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, fontFamily: 'OpenSansBold', color: Colors.white),
+          headline2: TextStyle(fontSize: 15, fontFamily: 'ProductSans', color: Colors.white),
+          headline3: TextStyle(fontSize: 16, fontFamily: 'OpenSansBold', color: Colors.white),
+          headline4: TextStyle(fontSize: 17, fontFamily: 'OpenSansBold', color: Colors.white),
         ),
 
-        brightness: Brightness.light,
+        brightness: Brightness.dark,
         primaryColor: Color.fromRGBO(3, 101, 140, 1.0),
         accentColor: Colors.cyan[600],
 

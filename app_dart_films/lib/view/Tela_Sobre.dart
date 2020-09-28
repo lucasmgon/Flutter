@@ -6,28 +6,39 @@ class TelaSobre extends StatefulWidget {
 }
 
 class _TelaSobreState extends State<TelaSobre> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            Text(
-              '© Dart Films - 1.0\n' +
-              'Desenvolvido por:\n' +
-              '\t- Eduardo\n' +
-              '\t- José\n' +
-              '\t- Lucas Matheus\n' +
-              '2020 - SI8',
+            Align(
+              alignment: Alignment.center,
+              child: Center(
+                child: Text('\n\n\n\n\t© Dart Films - 1.0\n\n' +
+                    'Desenvolvido por:\n' +
+                    'Eduardo de Miranda Vieira\n' +
+                    'José Laurindo\n' +
+                    'Lucas Matheus Gonçalves\n\n' +
+                    '\t2020 - SI8\n', 
+                  style: Theme.of(context).textTheme.headline4,
+                )
+              ),
             ),
-            IconButton(
-                        onPressed: (){
-                          Share.share('Confira mais em: https://www.themoviedb.org/movie/', subject: 'Dart Films Compartilhamento');
-                        },
-                        icon: Icon(Icons.share, color: Colors.blue, size: 20, semanticLabel: 'Compartilhar'),
-                      ),
+            
+            Column(
+              children: <Widget>[
+                Image.asset(
+                  'assets/images/tmbd.png',
+                  semanticLabel: "Logo TMBD",
+                ),
+              Text(
+                '\nEsse aplicativo faz uso da API TMDB',
+                style: Theme.of(context).textTheme.headline2,
+              )
+              ],
+            ),
           ],
         ),
       ),

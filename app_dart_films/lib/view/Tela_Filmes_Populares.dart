@@ -37,12 +37,12 @@ class _ListFilmesPopularesState extends State<ListFilmesPopulares> {
         return Material(
           color: Colors.transparent,
           clipBehavior: Clip.hardEdge, //forçar borda arrendondar
-          borderRadius: BorderRadius.circular(15),
+          borderRadius: BorderRadius.circular(25),
 
           child:ListTile(
             hoverColor: Color.fromRGBO(145, 170, 185, 0.5),
             onTap: () {
-              print(filmes[index].title);
+              print("${filmes[index].title}");
               showDialog(
                 context: context,
                 builder: (context) {
@@ -55,10 +55,11 @@ class _ListFilmesPopularesState extends State<ListFilmesPopulares> {
                       child: Column(
                         children: [
                           Text(
-                            '\t' + filmes[index].sinopse + '\t' + filmes[index].data + filmes[index].avaliacao.toString() + '\n',
+                            '\t' + filmes[index].sinopse + '\n\n' + "(" + filmes[index].ano.substring(0, 4) +
+                            ")" + '\nAvaliação: ' + filmes[index].avaliacao.toString() + '%' +'\n\n',
                             style: Theme.of(context).textTheme.headline2,
                           ),
-
+                          
                           ClipRRect(
                             //Arredondar borda da imagem
                             borderRadius: BorderRadius.circular(9),
@@ -84,7 +85,7 @@ class _ListFilmesPopularesState extends State<ListFilmesPopulares> {
                       IconButton(
                         onPressed: (){
                           Share.share(
-                            'Confira mais em: https://www.themoviedb.org/movie/${filmes[index].id}-${filmes[index].title}',
+                            'Confira mais em: https://www.themoviedb.org/movie/${filmes[index].id.toString()}-${filmes[index].title}',
                             subject: 'Dart Films Compartilhamento'
                             );
                         },
@@ -102,7 +103,10 @@ class _ListFilmesPopularesState extends State<ListFilmesPopulares> {
                 }
               );
             },
-            title: Text(filmes[index].title),
+            title: Text(
+              filmes[index].title,
+              style: Theme.of(context).textTheme.headline3,
+            ),
           )
         );
       },
